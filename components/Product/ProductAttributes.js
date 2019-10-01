@@ -9,9 +9,8 @@ const ProductAttributes = ({ _id, description }) => {
 	const [modal, setModal] = useState(false)
 	const router = useRouter()
 	const handleDelete = async () => {
-		const url = `${baseUrl}/api/product`
-		const payload = { params: { _id } }
-		await axios.delete(url, payload)
+		const url = `${baseUrl}/api/product/${_id}`
+		await axios.delete(url)
 		router.push('/')
 	}
 	return (

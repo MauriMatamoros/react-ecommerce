@@ -1,4 +1,7 @@
 import Product from '../../../models/Product'
+import connectDb from '../../../utils/connectDb'
+
+connectDb()
 
 export default async (req, res) => {
 	const { method } = req
@@ -10,7 +13,7 @@ export default async (req, res) => {
 			await handleDeleteRequest(req, res)
 			break
 		default:
-			res.setHeader('Allow', ['GET', 'POST', 'DELETE'])
+			res.setHeader('Allow', ['GET', 'DELETE'])
 			res.status(405).end(`Method ${method} Not Allowed`)
 			break
 	}
@@ -22,7 +25,6 @@ const handleGetRequest = async (req, res) => {
 }
 
 const handleDeleteRequest = async (req, res) => {
-	// Not returning the deleted item
 	const product = await Product.findByIdAndDelete(req.query._id)
-	res.status(204).json({})
+	res.status(204).json({ product })
 }

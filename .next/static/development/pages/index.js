@@ -59461,7 +59461,7 @@ var baseUrl =  false ? undefined : 'http://localhost:3000';
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!*************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fmmatamoros%2FDocuments%2Freact-reserve%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************/
@@ -59484,5 +59484,5 @@ module.exports = dll_01f9a3fa864a7b7414d8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
