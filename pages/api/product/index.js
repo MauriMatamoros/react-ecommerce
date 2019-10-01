@@ -5,9 +5,10 @@ connectDb()
 
 export default async (req, res) => {
 	try {
-		if (req.method !== 'POST') {
+		const { method } = req
+		if (method !== 'POST') {
 			res.setHeader('Allow', ['POST'])
-			return res.status(405).end(`Method ${req.method} Not Allowed`)
+			return res.status(405).end(`Method ${method} Not Allowed`)
 		}
 		const { name, price, description, mediaUrl } = req.body
 		if (!name || !price || !description || !mediaUrl) {
@@ -21,7 +22,7 @@ export default async (req, res) => {
 		}).save()
 		res.status(201).json({ product })
 	} catch (error) {
-        console.error(error)
+		console.error(error)
 		res.status(500).send('Server error.')
 	}
 }
