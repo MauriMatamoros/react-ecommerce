@@ -224,6 +224,7 @@ var Header = function Header() {
     fluid: true,
     id: "menu",
     inverted: true,
+    stackable: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16

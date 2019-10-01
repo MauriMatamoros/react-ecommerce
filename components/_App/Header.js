@@ -13,7 +13,7 @@ const Header = () => {
 	Router.onRouteChangeError = () => NProgress.done()
 
 	return (
-		<Menu fluid id='menu' inverted>
+		<Menu fluid id='menu' inverted stackable>
 			<Container text>
 				<Link href='/'>
 					<Menu.Item header active={isActive('/')}>
