@@ -14,7 +14,6 @@ connectDb()
 
 export default async (req, res) => {
 	try {
-		console.log('hey')
 		if (!('authorization' in req.headers)) {
 			return res.status(401).send('No authorization token')
 		}
