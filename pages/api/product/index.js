@@ -3,6 +3,7 @@ import connectDb from '../../../utils/connectDb'
 
 connectDb()
 
+// need to add auth to this function
 export default async (req, res) => {
 	try {
 		const { method } = req

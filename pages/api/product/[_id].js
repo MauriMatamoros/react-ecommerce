@@ -24,6 +24,7 @@ const handleGetRequest = async (req, res) => {
 	res.status(200).json(product)
 }
 
+// need to add auth to this function
 const handleDeleteRequest = async (req, res) => {
 	const product = await Product.findByIdAndDelete(req.query._id)
 	res.status(204).json({ product })
