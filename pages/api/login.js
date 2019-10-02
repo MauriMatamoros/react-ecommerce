@@ -7,7 +7,6 @@ import User from '../../models/User'
 connectDb()
 
 export default async (req, res) => {
-	console.log('im in')
 	try {
 		const { method } = req
 		if (method !== 'POST') {

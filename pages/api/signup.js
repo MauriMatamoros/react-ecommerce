@@ -5,6 +5,7 @@ import isLength from 'validator/lib/isLength'
 
 import connectDb from '../../utils/connectDb'
 import User from '../../models/User'
+import Cart from '../../models/Cart'
 
 connectDb()
 
@@ -31,6 +32,7 @@ export default async (req, res) => {
 		}
 		const hash = await bcrypt.hash(password, 10)
 		user = await new User({ name, email, password: hash }).save()
+		await new Cart({ user: user._id }).save()
 		const token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
 			expiresIn: '1d'
 		})
