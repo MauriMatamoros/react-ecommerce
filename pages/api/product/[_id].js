@@ -1,5 +1,6 @@
 import Product from '../../../models/Product'
 import connectDb from '../../../utils/connectDb'
+import Cart from '../../../models/Cart'
 
 connectDb()
 
@@ -26,6 +27,17 @@ const handleGetRequest = async (req, res) => {
 
 // need to add auth to this function
 const handleDeleteRequest = async (req, res) => {
-	const product = await Product.findByIdAndDelete(req.query._id)
-	res.status(204).json({ product })
+	try {
+		const { _id } = req.query
+		const product = await Product.findByIdAndDelete(_id)
+		//remove product from all carts, references as product | cascade delete
+		await Cart.updateMany(
+			{ 'products.product': _id },
+			{ $pull: { products: { product: _id } } }
+		)
+		res.status(204).json({ product })
+	} catch (error) {
+		console.error(error)
+		res.status(500).send('Error deleting product')
+	}
 }
