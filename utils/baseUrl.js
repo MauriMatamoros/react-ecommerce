@@ -1,6 +1,6 @@
 const baseUrl =
 	process.env.NODE_ENV === 'production'
-		? 'https://ecommerce-mmatamoros.now.sh'
+		? 'http://157.245.135.246:3000'
 		: 'http://localhost:3000'
 
 export default baseUrl
